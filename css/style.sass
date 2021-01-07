@@ -1,0 +1,404 @@
+$main-color: #6fce67
+
+body
+    font-family: 'Josefin Sans', sans-serif
+
+.active
+    color: $main-color !important
+
+%section
+    padding: 70px
+    margin-top: 70px
+
+%sectionHeader
+    font-size: 50px
+    font-weight: bold
+    text-transform: uppercase
+
+%sectionHr
+    display: block
+    width: 120px
+    height: 1px
+    margin-bottom: 30px
+    background-color: $main-color
+
+%mediaHeader
+    @media (min-width: 768px) and (max-width: 991px)
+        font-size: 40px
+    @media (min-width: 576px) and (max-width: 767px)
+        font-size: 30px
+    @media (max-width: 575px)
+        font-size: 30px
+
+%boxLeft_Right_Before
+    content: ''
+    width: 0
+    height: 0
+    border-width: 10px
+    border-style: solid
+    position: absolute
+    top: 15px
+
+%box_Left_Right
+    width: 45%
+    position: relative
+    top: -68px
+
+// Start Header
+.header
+    background-image: url('../imgs/01.jpg')
+    height: 100vh
+    background-repeat: no-repeat
+    background-size: cover
+    background-attachment: fixed
+    width: 100%
+    position: relative
+
+    .overlay
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, 0.7)
+    .navbar
+        border-bottom: 1px solid #5c5c5c
+        button
+            outline: none
+            border: 1px solid $main-color
+            i
+                color: $main-color
+                font-size: 23px
+        a
+            color: #ffffff
+            font-size: 17px
+            margin-left: 20px
+            text-transform: uppercase
+            &:hover
+                color: $main-color
+            i
+                margin-right: 10px
+    .content-header
+        position: absolute
+        top: 50%
+        left: 10%
+        transform: translateY(-50%)
+        p
+            &:first-child
+                font-size: 30px
+                color: #ffffff
+                @media (max-width: 575px)
+                    font-size: 20px
+                @media (min-width: 576px) and (max-width: 767px)
+                    font-size: 20px
+        h1
+            color: #ffffff
+            font-size: 70px
+            @media (max-width: 575px)
+                font-size: 50px
+            @media (min-width: 576px) and (max-width: 767px)
+                font-size: 60px
+        p
+            &:last-of-type
+                color: #ffffff
+                font-size: 20px
+                margin-top: 17px
+                @media (min-width: 576px) and (max-width: 767px)
+                    font-size: 17px
+                @media (max-width: 575px)
+                    font-size: 15px
+        a
+            color: #FFF
+            display: block
+            border: 1px solid #FFF
+            width: 200px
+            padding: 8px 5px
+            text-align: center
+            text-transform: uppercase
+            font-weight: bold
+            height: 50px
+            line-height: 35px
+            text-decoration: none
+            margin-top: 45px
+            transition: all .5s ease-in-out
+            &:hover
+                background-color: $main-color
+                border: 1px solid $main-color
+
+// Start Gallery
+.gallery
+    @extend %section
+    .h1
+        @extend %sectionHeader
+        @extend %mediaHeader
+    hr
+        @extend %sectionHr
+    .col-sm
+        padding-right: 0
+    .content-img
+        img
+            margin-bottom: 15px
+            &:hover
+                opacity: 0.7
+
+// Start Resume
+.resume
+    @extend %section
+    background-color: #FAFAFA
+    border-top: 1px solid #EEE
+    .h1
+        @extend %sectionHeader
+        @extend %mediaHeader
+    hr
+        @extend %sectionHr
+    .timeline-content
+        position: relative
+        overflow: hidden
+        @media (min-width: 576px) and (max-width: 767px)
+            overflow: visible
+        @media (max-width: 575px)
+            overflow: visible
+        &::before
+            content: ""
+            width: 3px
+            height: 100%
+            background-color: $main-color
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+        @media (min-width: 576px) and (max-width: 767px)
+            &::before
+                left: 0
+                transform: translateX(0)
+        @media (max-width: 575px)
+            &::before
+                left: 0
+                transform: translateX(0)
+
+        .icons
+            margin: 20px auto
+            width: 50px
+            height: 50px
+            position: relative
+            z-index: 2
+            background-color: $main-color
+            text-align: center
+            color: #FFF
+            border-radius: 50%
+            @media (min-width: 576px) and (max-width: 767px)
+                margin: 20px -23px
+            @media (max-width: 575px)
+                margin: 20px -23px
+            i
+                line-height: 50px
+        .left
+            float: left
+            @extend %box_Left_Right
+            @media (min-width: 768px) and (max-width: 991px)
+                width: 43%
+            @media (min-width: 576px) and (max-width: 767px)
+                width: 90%
+                float: right
+                right: -14px
+            @media (max-width: 575px)
+                width: 90%
+                float: right
+                right: -14px
+            &::before
+                @extend %boxLeft_Right_Before
+                border-color: transparent transparent transparent #EEE
+                right: -20px
+            @media (min-width: 576px) and (max-width: 767px)
+                &::before
+                    border-color: transparent #EEE transparent transparent
+                    left: -20px
+            @media (max-width: 575px)
+                &::before
+                    border-color: transparent #EEE transparent transparent
+                    left: -20px
+        .right
+            float: right
+            @extend %box_Left_Right
+            @media (min-width: 768px) and (max-width: 991px)
+                width: 43%
+            @media (min-width: 576px) and (max-width: 767px)
+                width: 90%
+                right: -14px
+            @media (max-width: 575px)
+                width: 90%
+                right: -14px
+            &::before
+                @extend %boxLeft_Right_Before
+                border-color: transparent #EEE transparent transparent
+                left: -20px
+        .content
+            background-color: #FFF
+            padding: 20px
+            border: 1px solid #EEE
+            border-bottom: 2px solid $main-color
+            h3
+                margin-bottom: 20px
+                @media (min-width: 768px) and (max-width: 991px)
+                    font-size: 1.4rem
+                @media (min-width: 576px) and (max-width: 767px)
+                    font-size: 1.4rem
+                @media (max-width: 575px)
+                    font-size: 1.4rem
+// Start John Cleese
+.john-cleese
+    background-image: url('../imgs/08.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-attachment: fixed
+    min-height: 300px
+    position: relative
+    .overlay
+        position: absolute
+        top: 0
+        left: 0
+        background-color: rgba(0, 0, 0, 0.7)
+        width: 100%
+        height: 100%
+    .john-content
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        color: #FFF
+        width: 100%
+        q
+            font-size: 40px
+            margin-bottom: 30px
+            display: block
+            font-weight: bold
+            @media (min-width: 768px) and (max-width: 991px)
+                font-size: 30px
+            @media (min-width: 576px) and (max-width: 767px)
+                font-size: 23px
+            @media (max-width: 575px)
+                font-size: 20px
+        span
+            display: block
+            font-size: 30px
+            margin-bottom: 30px
+        p
+            font-size: 20px
+
+// Start Contact
+.contact
+    padding: 70px
+    background-color: #FAFAFA
+
+    .h1
+        @extend %sectionHeader
+        @extend %mediaHeader
+    hr
+        @extend %sectionHr
+    .my-info
+        .city
+            font-size: 20px
+            margin-bottom: 10px
+        div
+            &:not(:first-child)
+                color: $main-color
+                font-size: 16px
+        i
+            margin-right: 5px
+    form
+        width: 800px
+        margin: 20px auto
+        @media (min-width: 768px) and (max-width: 991px)
+            width: 600px
+        @media (min-width: 576px) and (max-width: 767px)
+            width: 450px
+        @media (max-width: 575px)
+            width: 350px
+        div
+            &:not(:last-child)
+                input
+                    padding: 16px
+                    &:focus::-webkit-input-placeholder
+                        opacity: 0
+                        transition: all 0.5s ease-in-out
+        textarea
+            padding: 16px
+            height: 150px
+            &:focus::-webkit-input-placeholder
+                opacity: 0
+                transition: all 0.5s ease-in-out
+        input[type="submit"]
+            background-color: $main-color
+            padding: 8px
+            color: #ffffff
+            font-size: 20px
+
+// Start Footer            
+.footer
+    border-top: 1px solid #EEE
+    padding: 70px
+    .left
+        margin-top: 50px
+        @media (min-width: 576px) and (max-width: 767px)
+            text-align: center
+        @media (max-width: 575px)
+            text-align: center
+        p
+            font-size: 13px
+    .right
+        float: right
+        margin-top: 50px
+        @media (min-width: 576px) and (max-width: 767px)
+            float: none
+            margin-top: 0
+        @media (max-width: 575px)
+            float: none
+            margin-top: 0
+
+        ul
+            li
+                display: inline-block
+                a
+                    text-decoration: none
+                    margin-right: 17px
+                    font-size: 15px
+                    color: #000
+        .social
+            margin-top: 20px
+            text-align: right
+            @media (min-width: 576px) and (max-width: 767px)
+                text-align: center
+            @media (max-width: 575px)
+                text-align: center
+            span
+                display: inline-block
+                margin-right: 15px
+                width: 40px
+                height: 40px
+                background-color: $main-color
+                border-radius: 50%
+                color: #FFF
+                text-align: center
+                cursor: pointer
+                @media (min-width: 576px) and (max-width: 767px)
+                    margin-right: 5px
+                @media (max-width: 575px)
+                    margin-right: 5px
+                i
+                    line-height: 40px
+// Start To Top
+.to-top
+    position: fixed
+    right: 20px
+    bottom: 20px
+    background-color: $main-color
+    color: #ffffff
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    text-align: center
+    cursor: pointer
+    z-index: 9999
+    display: none
+    i
+        line-height: 40px
